@@ -4,7 +4,7 @@
 
 #include "main.h"
 
-void printMul(void)
+void print_alphabet(void)
 {
 	char letter;
 
