@@ -2,9 +2,8 @@
  * File - 0-strcat.c
  */
 
-#include "main.h"
 #include <stdio.h>
-
+#include "main.h"
 /**
  * _strcat - concatenates two strings.
  *@dest : first string.
