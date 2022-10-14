@@ -7,15 +7,15 @@
 /**
  * sum_them_all - Entry Point
  * @n: variadic input
- * Return: sum
+ * Return: If n == 0 -)
+ * else - sum
  */
 int sum_them_all(const unsigned int n, ...)
 {
 	va_list valist;
-	unsigned int i, sum = 0;
+	unsigned int i;
+	int sum = 0;
 
-	if (n == 0)
-		return (0);
 
 	va_start(valist, n);
 
