@@ -3,7 +3,7 @@
  */
 #include "variadic_functions.h"
 #include <stdio.h>
-#include <stdargi>
+#include <stdarg.h>
 /**
  * print_numbers - check the code for Holberton School students.
  * @n: number of arguments
