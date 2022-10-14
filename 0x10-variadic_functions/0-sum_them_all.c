@@ -1,7 +1,7 @@
 /*
  * file - 0-sum_them_all.c
  */
-#include "variadic_fumnctions.h"
+#include "variadic_functions.h"
 #include <stdio.h>
 #include <stdarg.h>
 /**
