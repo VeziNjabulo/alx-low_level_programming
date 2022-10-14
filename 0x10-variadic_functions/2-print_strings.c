@@ -1,30 +1,38 @@
 /*
- * file - 1-print_numbers.c
+ * file - 2-print_strings.c
  */
 #include "variadic_functions.h"
 #include <stdio.h>
-#include <stdargi>
+#include <stdarg.h>
+
 /**
- * print_numbers - check the code for Holberton School students.
+ * print_strings - prints strings.
  * @n: number of arguments
  * @separator: character separator of numbers
  * Return: Always 0.
  */
-void print_numbers(const char *separator, const unsigned int n, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list numbers;
+	va_list string;
 	unsigned int i;
+	char *str;
 
 	if (separator == NULL)
 	{
 		separator = "";
 	}
 
-	va_start(numbers, n);
+	va_start(string, n);
 
 	for (i = 0; i < n; i++)
 	{
-		printf("%d", va_arg(numbers, int));
+		str = va_arg(string, char *);
+		if (str == NULL)
+		{
+			printf("(nil)");
+			break;
+		}
+		printf("%s", str);
 		if (n == i + 1)
 		{
 			break;
@@ -32,5 +40,5 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		printf("%s", separator);
 	}
 	printf("\n");
-	va_end(numbers);
+	va_end(string);
 }
