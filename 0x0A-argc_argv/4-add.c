@@ -6,11 +6,12 @@
 #include <ctype.h>
 #include <string.h>
 /**
- * main - sum of line arguments
- * @argc: number of arguments
- * @argv: array of all arguments
- * Return: 0 on success, 1 for error
- */
+*main - sum over line arguments
+*@argc: number of arguments
+*@argv: array of arguments
+*Return: 0 on success, 1 if error
+*/
+
 int main(int argc, char *argv[])
 {
 	int i;
