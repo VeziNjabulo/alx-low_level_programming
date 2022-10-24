@@ -3,7 +3,7 @@
  */
 #include "main.h"
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
  * create_array - a program that creates a dynamic memory allocation
  * filled with a specific character c .
@@ -13,12 +13,15 @@
  */
 char *create_array(unsigned int size, char c)
 {
-	char *pstr;
+	char *a;
 	unsigned int i;
 
-	pstr = malloc(sizeof(char) * size);
+	if (size == 0)
+		return (NULL);
+	a = (char *) malloc(size * sizeof(char));
+	if (a == NULL)
+		return (NULL);
 	for (i = 0; i < size; i++)
-		pstr[i] = c;
-	pstr[i] = 0;
-	return (size < 1 ? 0 : pstr);
+		a[i] = c;
+	return (a);
 }

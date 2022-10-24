@@ -5,7 +5,25 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+/**
+*size - obtain the size of an array of 2 dimensions
+*@c: number of arguments
+*@v: array of pointers to strings
+*Return: size of an array
+*/
+int size(int c, char **v)
+{
+	int rec1, rec2, sz = 0;
 
+	for (rec1 = 0; rec1 < c; rec1++)
+	{
+		for (rec2 = 0; v[rec1][rec2]; rec2++)
+			sz++;
+		sz++;/*space for newline*/
+	}
+	sz++;/*space for string terminator*/
+	return (sz);
+}
 /**
  * argstostr - concatenates all the arguments of a program.
  * @ac: int input.
@@ -14,33 +32,21 @@
  */
 char *argstostr(int ac, char **av)
 {
-	char *str;
-	int len = 0, i = 0, j, k = 0;
+	char *a;
+	int i, j, k, len = 0;
 
-	if (av == 0 || ac == 0)
-		return (0);
-	while (i < ac)
+	if (ac == 0 || av == 0)
+		return (NULL);
+	len = size(ac, av);
+	a = (char *) malloc(len * sizeof(char));
+	if (a == NULL)
+		return (NULL);
+	for (i = 0, k = 0; i < ac; ++i, ++k)
 	{
-		j = 0;
-		while (av[i][j] != 0)
-			len++, j++;
-		len++, i++;
+		for (j = 0; av[i][j]; ++j, ++k)
+			a[k] = av[i][j];
+		a[k] = '\n';
 	}
-	len++;
-	str = (char *)malloc(sizeof(char) * len);
-	if (str == 0)
-	{
-		free(str);
-		return (0);
-	}
-	i = 0;
-	while (i < ac)
-	{
-		j = 0;
-		while (av[i][j] != 0)
-			str[k] = av[i][j], j++, k++;
-		str[k] = '\n', k++, i++;
-	}
-	str[k] = 0;
-	return (str);
+	a[k + 1] = '\0';
+	return (a);
 }

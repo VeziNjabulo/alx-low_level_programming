@@ -4,7 +4,7 @@
 
 #include "main.h"
 #include <sdtlib>
-
+#include <stdio.h>
 /**
  * _strdup - a function to copy a string on a new allocated memory
  * area.
@@ -14,17 +14,18 @@
  */
 char *_strdup(char *str)
 {
-	char *pstr;
-	unsigned int i = 0;
 
-	if (str == 0)
-		return (0);
-	while (str[i] != 0)
-		i++;
-	i++;
-	pstr = malloc(sizeof(char) * i);
-	for (i = 0; str[i] != 0; i++)
-		pstr[i] = str[i];
-	pstr[i] = 0;
-	return (pstr);
+	int i, j;
+	char *dup;
+
+	if (str == NULL)
+		return (NULL);
+	for (i = 0; str[i]; i++)
+		;
+	dup = (char *)malloc((i + 1) * sizeof(char));
+	if (dup == NULL)
+		return (dup);
+	for (j = 0; j <= i; ++j)
+		dup[j] = str[j];
+	return (dup);
 }
